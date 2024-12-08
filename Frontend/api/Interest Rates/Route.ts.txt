@@ -1,0 +1,12 @@
+import { NextResponse } from 'next/server'
+
+export async function GET() {
+  // Simulate fetching interest rates from various platforms
+  const mockRates = [
+    { platform: 'Platform A', rate: 3.5 },
+    { platform: 'Platform B', rate: 4.2 },
+    { platform: 'Platform C', rate: 3.8 },
+  ]
+
+  return NextResponse.json(mockRates)
+}

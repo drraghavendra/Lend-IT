@@ -1,0 +1,16 @@
+import { InterestRates } from '@/components/interest-rates'
+import { UserDeposits } from '@/components/user-deposits'
+import { AutoReallocation } from '@/components/auto-reallocation'
+
+export default function Home() {
+  return (
+    <main className="container mx-auto p-4">
+      <h1 className="text-4xl font-bold mb-8">Lend-it: Maximize Your Bitcoin Yields</h1>
+      <div className="grid gap-8 md:grid-cols-2">
+        <InterestRates />
+        <UserDeposits />
+      </div>
+      <AutoReallocation />
+    </main>
+  )
+}
