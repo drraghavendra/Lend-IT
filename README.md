@@ -11,6 +11,8 @@ Lending Plastform  is a cutting-edge DeFi application designed to maximize user 
 
 https://qdkjdttnvkv9pfnje6n74esoapefffjj.vercel.app/
 
+https://tewvlemgtn1pa5tysandcgdex6ns6cly.vercel.app/
+
 # Core Functionalities
 
 Automated Interest Monitoring: Continuously scans the DeFi landscape to identify the most lucrative interest rates across various protocols.
