@@ -7,6 +7,10 @@ Revolutionizing DeFi with Fractal Bitcoin
 
 Lending Plastform  is a cutting-edge DeFi application designed to maximize user yields on Fractal Bitcoin. By leveraging the power of smart contracts and advanced algorithms, we offer a seamless and secure platform for automated interest optimization.
 
+
+![Lend IT](https://github.com/user-attachments/assets/46f881ed-5393-4488-8efa-7d9704291558)
+
+
 # Website Link can be found here
 
 https://qdkjdttnvkv9pfnje6n74esoapefffjj.vercel.app/
