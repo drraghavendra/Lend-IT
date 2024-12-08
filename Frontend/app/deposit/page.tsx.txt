@@ -1,0 +1,36 @@
+import { Header } from '../components/header'
+import { Button } from "@/components/ui/button"
+import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/card"
+import { Input } from "@/components/ui/input"
+import { Label } from "@/components/ui/label"
+
+export default function Deposit() {
+  return (
+    <div className="min-h-screen bg-background flex flex-col">
+      <Header />
+      <main className="flex-grow container mx-auto px-4 py-8">
+        <Card className="max-w-md mx-auto">
+          <CardHeader>
+            <CardTitle>Deposit Fractal Bitcoin</CardTitle>
+            <CardDescription>Enter the amount you want to deposit</CardDescription>
+          </CardHeader>
+          <CardContent>
+            <form>
+              <div className="grid w-full items-center gap-4">
+                <div className="flex flex-col space-y-1.5">
+                  <Label htmlFor="amount">Amount</Label>
+                  <Input id="amount" placeholder="Enter FBT amount" />
+                </div>
+              </div>
+            </form>
+          </CardContent>
+          <CardFooter className="flex justify-between">
+            <Button variant="outline">Cancel</Button>
+            <Button>Deposit</Button>
+          </CardFooter>
+        </Card>
+      </main>
+    </div>
+  )
+}
+

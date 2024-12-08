@@ -1,0 +1,22 @@
+import { Inter } from 'next/font/google'
+import './globals.css'
+
+const inter = Inter({ subsets: ['latin'] })
+
+export const metadata = {
+  title: 'Lend-it: Maximize Your Fractal Bitcoin Returns',
+  description: 'Secure and effortless way to maximize returns on your Fractal Bitcoin coins.',
+}
+
+export default function RootLayout({
+  children,
+}: {
+  children: React.ReactNode
+}) {
+  return (
+    <html lang="en">
+      <body className={inter.className}>{children}</body>
+    </html>
+  )
+}
+

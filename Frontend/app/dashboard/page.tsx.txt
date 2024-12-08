@@ -1,0 +1,53 @@
+import { Header } from '../components/header'
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
+import { Progress } from "@/components/ui/progress"
+
+export default function Dashboard() {
+  return (
+    <div className="min-h-screen bg-background flex flex-col">
+      <Header />
+      <main className="flex-grow container mx-auto px-4 py-8">
+        <h1 className="text-3xl font-bold mb-8">Your Dashboard</h1>
+        <div className="grid md:grid-cols-2 gap-8">
+          <Card>
+            <CardHeader>
+              <CardTitle>Total Deposits</CardTitle>
+            </CardHeader>
+            <CardContent>
+              <p className="text-4xl font-bold">5.2345 FBT</p>
+              <p className="text-sm text-muted-foreground">≈ $10,469.00 USD</p>
+            </CardContent>
+          </Card>
+          <Card>
+            <CardHeader>
+              <CardTitle>Current Yield</CardTitle>
+            </CardHeader>
+            <CardContent>
+              <p className="text-4xl font-bold">8.5% APY</p>
+              <Progress value={85} className="mt-2" />
+            </CardContent>
+          </Card>
+          <Card>
+            <CardHeader>
+              <CardTitle>Earnings (30d)</CardTitle>
+            </CardHeader>
+            <CardContent>
+              <p className="text-4xl font-bold">0.0432 FBT</p>
+              <p className="text-sm text-muted-foreground">≈ $86.40 USD</p>
+            </CardContent>
+          </Card>
+          <Card>
+            <CardHeader>
+              <CardTitle>Next Reallocation</CardTitle>
+            </CardHeader>
+            <CardContent>
+              <p className="text-4xl font-bold">12:34:56</p>
+              <p className="text-sm text-muted-foreground">Optimizing for best yield</p>
+            </CardContent>
+          </Card>
+        </div>
+      </main>
+    </div>
+  )
+}
+

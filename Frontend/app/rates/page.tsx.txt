@@ -1,0 +1,41 @@
+import { Header } from '../components/header'
+import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@/components/ui/table"
+
+const platforms = [
+  { name: "Lend-it (Current)", apy: "8.5%", security: "High", liquidity: "High" },
+  { name: "Platform A", apy: "7.2%", security: "Medium", liquidity: "High" },
+  { name: "Platform B", apy: "8.1%", security: "High", liquidity: "Medium" },
+  { name: "Platform C", apy: "9.0%", security: "Low", liquidity: "Low" },
+]
+
+export default function Rates() {
+  return (
+    <div className="min-h-screen bg-background flex flex-col">
+      <Header />
+      <main className="flex-grow container mx-auto px-4 py-8">
+        <h1 className="text-3xl font-bold mb-8">Interest Rate Comparison</h1>
+        <Table>
+          <TableHeader>
+            <TableRow>
+              <TableHead>Platform</TableHead>
+              <TableHead>APY</TableHead>
+              <TableHead>Security</TableHead>
+              <TableHead>Liquidity</TableHead>
+            </TableRow>
+          </TableHeader>
+          <TableBody>
+            {platforms.map((platform) => (
+              <TableRow key={platform.name}>
+                <TableCell className="font-medium">{platform.name}</TableCell>
+                <TableCell>{platform.apy}</TableCell>
+                <TableCell>{platform.security}</TableCell>
+                <TableCell>{platform.liquidity}</TableCell>
+              </TableRow>
+            ))}
+          </TableBody>
+        </Table>
+      </main>
+    </div>
+  )
+}
+
