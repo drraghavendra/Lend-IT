@@ -1,0 +1,54 @@
+import { useEffect, useState } from 'react';
+import { fetchUserData, UserData } from '../services/api';
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@/components/ui/table";
+
+export function UserDashboard() {
+  const [userData, setUserData] = useState<UserData | null>(null);
+
+  useEffect(() => {
+    fetchUserData().then(setUserData);
+  }, []);
+
+  if (!userData) return <div>Loading...</div>;
+
+  return (
+    <Card>
+      <CardHeader>
+        <CardTitle>Your Dashboard</CardTitle>
+      </CardHeader>
+      <CardContent>
+        <div className="space-y-4">
+          <div>
+            <h3 className="text-lg font-semibold">Total Deposited</h3>
+            <p className="text-2xl font-bold">{userData.totalDeposited.toFixed(2)} coins</p>
+          </div>
+          <div>
+            <h3 className="text-lg font-semibold">Total Earned</h3>
+            <p className="text-2xl font-bold">{userData.totalEarned.toFixed(2)} coins</p>
+          </div>
+          <div>
+            <h3 className="text-lg font-semibold">Current Allocation</h3>
+            <Table>
+              <TableHeader>
+                <TableRow>
+                  <TableHead>Platform</TableHead>
+                  <TableHead>Interest Rate</TableHead>
+                </TableRow>
+              </TableHeader>
+              <TableBody>
+                {userData.currentAllocation.map((platform) => (
+                  <TableRow key={platform.name}>
+                    <TableCell>{platform.name}</TableCell>
+                    <TableCell>{platform.interestRate.toFixed(2)}%</TableCell>
+                  </TableRow>
+                ))}
+              </TableBody>
+            </Table>
+          </div>
+        </div>
+      </CardContent>
+    </Card>
+  );
+}
+

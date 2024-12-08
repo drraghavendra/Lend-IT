@@ -1,0 +1,48 @@
+export interface Platform {
+  name: string;
+  interestRate: number;
+}
+
+export interface UserData {
+  totalDeposited: number;
+  totalEarned: number;
+  currentAllocation: Platform[];
+}
+
+const mockPlatforms: Platform[] = [
+  { name: "Lend-it Pool A", interestRate: 5.2 },
+  { name: "Lend-it Pool B", interestRate: 4.8 },
+  { name: "Lend-it Pool C", interestRate: 6.1 },
+];
+
+const mockUserData: UserData = {
+  totalDeposited: 10000,
+  totalEarned: 520,
+  currentAllocation: [
+    { name: "Lend-it Pool A", interestRate: 5.2 },
+    { name: "Lend-it Pool C", interestRate: 6.1 },
+  ],
+};
+
+export async function fetchInterestRates(): Promise<Platform[]> {
+  // Simulate API call delay
+  await new Promise(resolve => setTimeout(resolve, 1000));
+  return mockPlatforms;
+}
+
+export async function fetchUserData(): Promise<UserData> {
+  // Simulate API call delay
+  await new Promise(resolve => setTimeout(resolve, 1000));
+  return mockUserData;
+}
+
+export async function submitDeposit(amount: number): Promise<{ success: boolean, message: string }> {
+  // Simulate API call delay
+  await new Promise(resolve => setTimeout(resolve, 1000));
+  if (amount > 0) {
+    return { success: true, message: `Successfully deposited ${amount} coins.` };
+  } else {
+    return { success: false, message: "Invalid deposit amount." };
+  }
+}
+

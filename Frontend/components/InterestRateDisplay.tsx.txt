@@ -1,0 +1,39 @@
+import { useEffect, useState } from 'react';
+import { fetchInterestRates, Platform } from '../services/api';
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@/components/ui/table";
+
+export function InterestRateDisplay() {
+  const [platforms, setPlatforms] = useState<Platform[]>([]);
+
+  useEffect(() => {
+    fetchInterestRates().then(setPlatforms);
+  }, []);
+
+  return (
+    <Card>
+      <CardHeader>
+        <CardTitle>Current Interest Rates</CardTitle>
+      </CardHeader>
+      <CardContent>
+        <Table>
+          <TableHeader>
+            <TableRow>
+              <TableHead>Platform</TableHead>
+              <TableHead>Interest Rate</TableHead>
+            </TableRow>
+          </TableHeader>
+          <TableBody>
+            {platforms.map((platform) => (
+              <TableRow key={platform.name}>
+                <TableCell>{platform.name}</TableCell>
+                <TableCell>{platform.interestRate.toFixed(2)}%</TableCell>
+              </TableRow>
+            ))}
+          </TableBody>
+        </Table>
+      </CardContent>
+    </Card>
+  );
+}
+
